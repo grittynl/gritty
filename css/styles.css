@@ -1,0 +1,50 @@
+@import url("https://use.typekit.net/kuw2tbx.css");
+
+/* Styles for all pages */
+
+body {
+	font-family: century-gothic, sans-serif;
+}
+
+.text-cyan {
+	color: #35a8e0;
+}
+
+.text-magenta {
+	color: #e61b72;
+}
+
+.hero-header {
+	background-image: url(../images/header-background.jpg);
+	background-size: cover;
+	background-position: center;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, .8);
+}
+
+/* Style for the map page */
+
+#map {
+	height: 350px;
+}
+
+/* Styles for the calendar page */
+
+.week-table td {
+	width:  14.2%;
+}
+
+.week-table td:not(.inactive-day) {
+	cursor:  pointer;
+}
+
+.week-table td:not(.inactive-day):hover {
+	background: #e61b72;
+	color: white;
+}
+
+td.selected-day {
+	background: #35a8e0;
+	color: white;
+}
+
+/* End of own styles */

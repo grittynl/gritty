@@ -1,0 +1,274 @@
+<!doctype html>
+<html class="h-100" lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- Leaflet CSS, for the map -->
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+
+    <!-- Own CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Bootstrap Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <!-- Leaflet Javascript -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+    <title>COTRAVEL, covid-proof travel</title>
+  </head>
+  <body class="h-100 d-flex flex-column">
+
+    <!-- This is the navigation bar, see https://getbootstrap.com/docs/5.1/components/navbar/ -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="images/cotravel-logo.svg" alt="CoTravel Logo" width="72">
+          <span class="fw-bold text-cyan">CO</span>
+          <span class="fw-bold text-magenta">TRAVEL</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#services">Our services</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="destinations.html" id="destinationDropdownButton" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Choose a destination
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="destinationDropdownButton" id="destinationDropdown">
+                <li><a class="dropdown-item" href="destinations.html#top">All destinations</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="destinations.html#argentina">Argentina</a></li>
+                <li><a class="dropdown-item" href="destinations.html#istanbul">Istanbul</a></li>
+                <li><a class="dropdown-item" href="destinations.html#japan">Japan</a></li>
+                <li><a class="dropdown-item" href="destinations.html#nyc">New York</a></li>
+                <li><a class="dropdown-item" href="destinations.html#thailand">Thailand</a></li>
+                <li><a class="dropdown-item" href="destinations.html#vietnam">Vietnam</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="calendar.html">Choose a date</a>
+            </li>
+            <!-- A call to action at the end of the navigation bar.
+              This uses the Offcanvas pattern, see documentation at https://getbootstrap.com/docs/5.1/components/offcanvas/ -->
+            <li class="nav-item ms-lg-auto">
+              <button class="btn btn-danger" data-bs-target="#offcanvas" data-bs-toggle="offcanvas" aria-controls="offcanvas">
+                Contact us!
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- A hero section. hero-header is defined in our own styles -->
+    <div class="bg-dark py-4 mb-4 text-light container-fluid hero-header text-center">
+      <h1>When would you like to leave?</h1>
+    </div>
+
+    <!-- Calendar -->
+    <div class="container mb-5">
+      <div class="row">
+        <!-- This calendar is all "handmade" and will only display these two months.
+          You can find dynamic calendar components by searching online. -->
+        <div class="col-md-6 text-center">
+          <h3>July 2022</h3>
+          <table class="table table-striped w-100 week-table">
+            <thead class="table-info">
+              <tr>
+                <th class="fw-normal" scope="col">M<span class="d-none d-sm-inline">on</span><span class="d-none d-xxl-inline">day</span></th>
+                <th class="fw-normal" scope="col">T<span class="d-none d-sm-inline">ue</span><span class="d-none d-xxl-inline">sday</span></th>
+                <th class="fw-normal" scope="col">W<span class="d-none d-sm-inline">ed</span><span class="d-none d-xxl-inline">nesday</span></th>
+                <th class="fw-normal" scope="col">T<span class="d-none d-sm-inline">hu</span><span class="d-none d-xxl-inline">rsday</span></th>
+                <th class="fw-normal" scope="col">F<span class="d-none d-sm-inline">ri</span><span class="d-none d-xxl-inline">day</span></th>
+                <th class="fw-normal" scope="col">S<span class="d-none d-sm-inline">at</span><span class="d-none d-xxl-inline">urday</span></th>
+                <th class="fw-normal" scope="col">S<span class="d-none d-sm-inline">un</span><span class="d-none d-xxl-inline">day</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-muted inactive-day">27</td>
+                <td class="text-muted inactive-day">28</td>
+                <td class="text-muted inactive-day">29</td>
+                <td class="text-muted inactive-day">30</td>
+                <td class="fw-bold">1</td>
+                <td class="fw-bold">2</td>
+                <td class="fw-bold">3</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">4</td>
+                <td class="fw-bold">5</td>
+                <td class="fw-bold">6</td>
+                <td class="fw-bold">7</td>
+                <td class="fw-bold">8</td>
+                <td class="fw-bold">9</td>
+                <td class="fw-bold">10</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">11</td>
+                <td class="fw-bold">12</td>
+                <td class="fw-bold">13</td>
+                <td class="fw-bold">14</td>
+                <td class="fw-bold">15</td>
+                <td class="fw-bold">16</td>
+                <td class="fw-bold">17</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">18</td>
+                <td class="fw-bold">19</td>
+                <td class="fw-bold">20</td>
+                <td class="fw-bold">21</td>
+                <td class="fw-bold">22</td>
+                <td class="fw-bold">23</td>
+                <td class="fw-bold">24</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">25</td>
+                <td class="fw-bold">26</td>
+                <td class="fw-bold">27</td>
+                <td class="fw-bold">28</td>
+                <td class="fw-bold">29</td>
+                <td class="fw-bold">30</td>
+                <td class="fw-bold">31</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- End of July, moving on to August -->
+        <div class="col-md-6 text-center">
+          <h3>August 2022</h3>
+          <table class="table table-striped w-100 week-table">
+            <thead class="table-info">
+              <tr>
+                <th class="fw-normal" scope="col">M<span class="d-none d-sm-inline">on</span><span class="d-none d-xxl-inline">day</span></th>
+                <th class="fw-normal" scope="col">T<span class="d-none d-sm-inline">ue</span><span class="d-none d-xxl-inline">sday</span></th>
+                <th class="fw-normal" scope="col">W<span class="d-none d-sm-inline">ed</span><span class="d-none d-xxl-inline">nesday</span></th>
+                <th class="fw-normal" scope="col">T<span class="d-none d-sm-inline">hu</span><span class="d-none d-xxl-inline">rsday</span></th>
+                <th class="fw-normal" scope="col">F<span class="d-none d-sm-inline">ri</span><span class="d-none d-xxl-inline">day</span></th>
+                <th class="fw-normal" scope="col">S<span class="d-none d-sm-inline">at</span><span class="d-none d-xxl-inline">urday</span></th>
+                <th class="fw-normal" scope="col">S<span class="d-none d-sm-inline">un</span><span class="d-none d-xxl-inline">day</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="fw-bold">1</td>
+                <td class="fw-bold">2</td>
+                <td class="fw-bold">3</td>
+                <td class="fw-bold">4</td>
+                <td class="fw-bold">5</td>
+                <td class="fw-bold">6</td>
+                <td class="fw-bold">7</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">8</td>
+                <td class="fw-bold">9</td>
+                <td class="fw-bold">10</td>
+                <td class="fw-bold">11</td>
+                <td class="fw-bold">12</td>
+                <td class="fw-bold">13</td>
+                <td class="fw-bold">14</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">15</td>
+                <td class="fw-bold">16</td>
+                <td class="fw-bold">17</td>
+                <td class="fw-bold">18</td>
+                <td class="fw-bold">19</td>
+                <td class="fw-bold">20</td>
+                <td class="fw-bold">21</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">22</td>
+                <td class="fw-bold">23</td>
+                <td class="fw-bold">24</td>
+                <td class="fw-bold">25</td>
+                <td class="fw-bold">26</td>
+                <td class="fw-bold">27</td>
+                <td class="fw-bold">28</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">29</td>
+                <td class="fw-bold">30</td>
+                <td class="fw-bold">31</td>
+                <td class="text-muted inactive-day">1</td>
+                <td class="text-muted inactive-day">2</td>
+                <td class="text-muted inactive-day">3</td>
+                <td class="text-muted inactive-day">4</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="text-end">
+        <button id="calendar-button" class="btn btn-danger" data-bs-target="#offcanvas" data-bs-toggle="offcanvas" aria-controls="offcanvas" disabled>
+          Get a quote for <span id="this-date-span">this date</span>
+        </button>
+      </div>
+    </div>
+    <!-- End of calendar -->
+
+    <script src="js/calendar.js"></script>
+
+    <!-- Footer -->
+    <footer class="mt-auto bg-dark text-light shadow-lg">
+      <div class="container pt-3 text-end">
+        <p class="">&copy; Breda University of Applied Sciences 2021-2022</p>
+      </div>
+    </footer>
+
+    <!-- The contact form is hidden in an offcanvas at the end of the page. Every contact button points here,
+      see documentation at https://getbootstrap.com/docs/5.1/components/offcanvas/ -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+      <div class="offcanvas-header">
+        <h3 class="offcanvas-title" id="offcanvasLabel">Contact us</h3>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div>
+          <h5>Call <span class="text-cyan fw-bold">CO</span><span class="text-magenta fw-bold">TRAVEL</span> now for a quote</h5>
+          <a class="btn btn-outline-danger" href="tel:+31765332203">Call (076) 533 22 03</a>
+        </div>
+        <hr>
+        <div>
+          <h5>Fill in the form to email us</h5>
+          <!-- This form includes required fields. For more details on validation,
+            see https://getbootstrap.com/docs/5.1/forms/validation/ -->
+          <form class="needs-validation" method="post" action="mailto:buas@buas.nl?subject=CoTravel%20Enquiry" enctype="text/plain">
+            <div class="my-3">
+              <label for="emailfield" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="emailfield" name="sender-email" required>
+            </div>
+            <div class="my-3">
+              <label for="messagefield" class="form-label">Your message</label>
+              <textarea class="form-control" id="messagefield" rows="5" name="message-contents" required></textarea>
+            </div>
+            <div class="form-check my-3">
+              <input type="checkbox" class="form-check-input" id="newsletter" name="subscribe-newsletter" checked>
+              <label class="form-check-label" for="newsletter">
+                Subscribe to the awesome
+                <span class="text-cyan fw-bold">CO</span><span class="text-magenta fw-bold">TRAVEL</span>
+                newsletter, you'll be the first to know about our new destinations
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Send a message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- End of contact form -->
+
+  </body>
+</html>

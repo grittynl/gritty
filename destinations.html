@@ -1,0 +1,276 @@
+<!doctype html>
+<html class="h-100" lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- Leaflet CSS, for the map -->
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+
+    <!-- Own CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Bootstrap Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <!-- Leaflet Javascript -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+    <title>COTRAVEL, covid-proof travel | Our destinations</title>
+  </head>
+  <body class="h-100 d-flex flex-column">
+
+    <!-- This is the navigation bar, see https://getbootstrap.com/docs/5.1/components/navbar/ -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="top">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="images/cotravel-logo.svg" alt="CoTravel Logo" width="72">
+          <span class="fw-bold text-cyan">CO</span>
+          <span class="fw-bold text-magenta">TRAVEL</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#services">Our services</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link active dropdown-toggle" href="destinations.html" id="destinationDropdownButton" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Choose a destination
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="destinationDropdownButton" id="destinationDropdown">
+                <li><a class="dropdown-item" aria-current="page" href="destinations.html#top">All destinations</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="destinations.html#argentina">Argentina</a></li>
+                <li><a class="dropdown-item" href="destinations.html#istanbul">Istanbul</a></li>
+                <li><a class="dropdown-item" href="destinations.html#japan">Japan</a></li>
+                <li><a class="dropdown-item" href="destinations.html#nyc">New York</a></li>
+                <li><a class="dropdown-item" href="destinations.html#thailand">Thailand</a></li>
+                <li><a class="dropdown-item" href="destinations.html#vietnam">Vietnam</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="calendar.html">Choose a date</a>
+            </li>
+            <!-- A call to action at the end of the navigation bar.
+              This uses the Offcanvas pattern, see documentation at https://getbootstrap.com/docs/5.1/components/offcanvas/ -->
+            <li class="nav-item ms-lg-auto">
+              <button class="btn btn-danger" data-bs-target="#offcanvas" data-bs-toggle="offcanvas" aria-controls="offcanvas">
+                Contact us!
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End of navigation bar -->
+
+    <!-- A hero section. hero-header is defined in our own styles -->
+    <div class="bg-dark py-4 text-light container-fluid hero-header text-center">
+      <h1>Our destinations</h1>
+    </div>
+
+    <!-- The list of destinations uses a "Tab" system.
+      Visit https://getbootstrap.com/docs/5.1/components/navs-tabs/#tabs for details -->
+    <div class="container">
+      <ul class="nav nav-pills fw-bold my-2" role="tablist" id="destinationTab">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link bg-gradient" id="argentina-tab" data-bs-toggle="tab" data-bs-target="#argentina" type="button" role="tab" aria-controls="argentina" aria-selected="false" data-coords="-34.603333, -58.381667">Argentina</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="istanbul-tab" data-bs-toggle="tab" data-bs-target="#istanbul" type="button" role="tab" aria-controls="istanbul" aria-selected="false" data-coords="41.013611, 28.955">Istanbul</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="japan-tab" data-bs-toggle="tab" data-bs-target="#japan" type="button" role="tab" aria-controls="japan" aria-selected="false" data-coords="34.275556, 132.307778">Japan</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="nyc-tab" data-bs-toggle="tab" data-bs-target="#nyc" type="button" role="tab" aria-controls="nyc" aria-selected="false" data-coords="40.712778, -74.006111">New York</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="thailand-tab" data-bs-toggle="tab" data-bs-target="#thailand" type="button" role="tab" aria-controls="thailand" aria-selected="false" data-coords="13.7525, 100.494167">Thailand</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="vietnam-tab" data-bs-toggle="tab" data-bs-target="#vietnam" type="button" role="tab" aria-controls="vietnam" aria-selected="false" data-coords="16.069444, 108.209722">Vietnam</button>
+        </li>
+      </ul>
+      <!-- End of navigation tabs -->
+
+      <!-- An empty div for the map which will be filled in by the Leaflet library.
+          Visit https://leafletjs.com/ to find out how maps work -->
+      <div id="map" class="w-100 my-2"></div>
+
+      <!-- This is where details on each destination will be -->
+      <div class="tab-content mb-5">
+        <!-- The destination panes start hidden, but will be made visible when clicking on a destination -->
+        <div class="tab-pane fade" id="argentina" role="tabpanel" aria-labelledby="argentina-tab">
+          <div class="bg-light bg-gradient fw-bold py-4 text-center">
+            <h3>Argentina</h3>
+            <h4 class="fst-italic">The land of tango and barbecue</h4>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-lg-5 col-xl-4">
+              <img src="images/destination-argentina.jpg" class="img-fluid rounded mx-auto d-block" alt="A photo of your destination">
+            </div>
+            <div class="col-sm-6 col-lg-7 col-xl-8 py-2">
+              <p>Don't cry for me, Argentina! The truth is I never left you. All through my wild days, my mad existence, I kept my promise. Don't keep your distance.</p>
+          <button class="btn btn-danger d-block w-100" data-bs-target="#offcanvas" data-bs-toggle="offcanvas" aria-controls="offcanvas">Get a quote for a holiday in Argentina</button>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="istanbul" role="tabpanel" aria-labelledby="istanbul-tab">
+          <div class="bg-light bg-gradient fw-bold py-4 text-center">
+            <h3>Istanbul, Turkey</h3>
+            <h4 class="fst-italic">The city on two continents</h4>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-lg-5 col-xl-4">
+              <img src="images/destination-istanbul.jpg" class="img-fluid rounded mx-auto d-block" alt="A photo of your destination">
+            </div>
+            <div class="col-sm-6 col-lg-7 col-xl-8 py-2">
+              <p>Istanbul was Constantinople.Now it's Istanbul, not Constantinople. Been a long time gone, Constantinople. Now it's Turkish delight on a moonlit night.</p>
+              <p>Every gal in Constantinople, lives in Istanbul, not Constantinople. So if you've a date in Constantinople, she'll be waiting in Istanbul.</p>
+              <p>Even old New York was once New Amsterdam. Why they changed it I can't say, people just liked it better that way</p>
+              <button class="btn btn-danger d-block w-100" data-bs-target="#offcanvas" data-bs-toggle="offcanvas" aria-controls="offcanvas">Get a quote for a holiday in Istanbul, Turkey</button>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="japan" role="tabpanel" aria-labelledby="japan-tab">
+          <div class="bg-light bg-gradient fw-bold py-4 text-center">
+            <h3>Japan</h3>
+            <h4 class="fst-italic">Visit futuristic cities and traditional shrines in the land of the rising sun!</h4>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-lg-5 col-xl-4">
+              <img src="images/destination-japan.jpg" class="img-fluid rounded mx-auto d-block" alt="A photo of your destination">
+            </div>
+            <div class="col-sm-6 col-lg-7 col-xl-8 py-2">
+              <ul>
+                <li>Fly direct from Schiphol to Tokyo-Narita or Kansai International.</li>
+                <li>Visit Tokyo and its surroundings.</li>
+                <li>From noodle soups and train-station lunchboxes to fine traditional dining, enjoy the diversity of one of the world's greatest cuisines.</li>
+                <li>Hop on the Shinkansen (bullet train) to Kyoto, Nara and Osaka.</li>
+                <li>If you have extra time, we will arrange visits to the sacred island of Miyajima and the Peace Memorial in Hiroshima.</li>
+              </ul>
+              <button class="btn btn-danger d-block w-100" data-bs-target="#offcanvas" data-bs-toggle="offcanvas" aria-controls="offcanvas">Get a quote for a holiday in Japan</button>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="nyc" role="tabpanel" aria-labelledby="nyc-tab">
+          <div class="bg-light bg-gradient fw-bold py-4 text-center">
+            <h3>New York, New York</h3>
+            <h4 class="fst-italic">The cultural and financial capital of the USA</h4>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-lg-5 col-xl-4">
+              <img src="images/destination-nyc.jpg" class="img-fluid rounded mx-auto d-block" alt="A photo of your destination">
+            </div>
+            <div class="col-sm-6 col-lg-7 col-xl-8 py-2">
+              <p>Start spreading the news, I'm leaving today. I want to be a part of it, New York, New York!</p>
+              <p>I want to wake up in a city that never sleeps and find I'm king of the hill, top of the heap.</p>
+              <p>If I can make it there, I'll make it anywhere. It's up to you, New York, New York</p>
+              <button class="btn btn-danger d-block w-100" data-bs-target="#offcanvas" data-bs-toggle="offcanvas" aria-controls="offcanvas">Get a quote for a holiday in New York, USA</button>
+            </div>
+          </div></div>
+        <div class="tab-pane fade" id="thailand" role="tabpanel" aria-labelledby="thailand-tab">
+          <div class="bg-light bg-gradient fw-bold py-4 text-center">
+            <h3>Thailand</h3>
+            <h4 class="fst-italic">From the beach to the jungle, enjoy the land of smiles</h4>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-lg-5 col-xl-4">
+              <img src="images/destination-thailand.jpg" class="img-fluid rounded mx-auto d-block" alt="A photo of your destination">
+            </div>
+            <div class="col-sm-6 col-lg-7 col-xl-8 py-2">
+              <p>The full name of Bangkok is <em>Krungthepmahanakhon Amonrattanakosin Mahintharayutthaya Mahadilokphop Noppharatratchathaniburirom Udomratchaniwetmahasathan Amonphimanawatansathit Sakkathattiyawitsanukamprasit</em> or, as locals call it, กรุงเทพมหานคร อมรรัตนโกสินทร์ มหินทรายุธยา มหาดิลกภพ นพรัตนราชธานีบูรีรมย์ อุดมราชนิเวศน์มหาสถาน อมรพิมานอวตารสถิต สักกะทัตติยวิษณุกรรมประสิทธิ์.</p>
+              <button class="btn btn-danger d-block w-100" data-bs-target="#offcanvas" data-bs-toggle="offcanvas" aria-controls="offcanvas">Get a quote for a holiday in Thailand</button>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="vietnam" role="tabpanel" aria-labelledby="vietnam-tab">
+          <div class="bg-light bg-gradient fw-bold py-4 text-center">
+            <h3>Việt Nam</h3>
+            <h4 class="fst-italic">Discover the many treasures of this wonderful country!</h4>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-lg-5 col-xl-4">
+              <img src="images/destination-vietnam.jpg" class="img-fluid rounded mx-auto d-block" alt="A photo of your destination">
+            </div>
+            <div class="col-sm-6 col-lg-7 col-xl-8 py-2">
+              <ul>
+                <li>Fly direct from Schiphol to Hanoi or Saigon (Ho Chi Minh City).</li>
+                <li>Bathe in the energy of bustling metropolises.</li>
+                <li>From Phở soup to Bánh mì sandwiches, enjoy truly amazing food at every street corner.</li>
+                <li>Discover the magical islets of the Hạ Long Bay.</li>
+                <li>Trek around mountains and rice paddies in Sapa.</li>
+              </ul>
+              <button class="btn btn-danger d-block w-100" data-bs-target="#offcanvas" data-bs-toggle="offcanvas" aria-controls="offcanvas">Get a quote for a holiday in Vietnam</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of destination details -->
+
+    <!-- Calling JavaScript code to initialize the map and make it interactive. -->
+    <script src="js/map.js"></script>
+    
+    <!-- Footer -->
+    <footer class="mt-auto bg-dark text-light shadow-lg">
+      <div class="container pt-3 text-end">
+        <p class="">&copy; Breda University of Applied Sciences 2021-2022</p>
+      </div>
+    </footer>
+
+    <!-- The contact form is hidden in an offcanvas at the end of the page. Every contact button points here,
+      see documentation at https://getbootstrap.com/docs/5.1/components/offcanvas/ -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+      <div class="offcanvas-header">
+        <h3 class="offcanvas-title" id="offcanvasLabel">Contact us</h3>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div>
+          <h5>Call <span class="text-cyan fw-bold">CO</span><span class="text-magenta fw-bold">TRAVEL</span> now for a quote</h5>
+          <a class="btn btn-outline-danger" href="tel:+31765332203">Call (076) 533 22 03</a>
+        </div>
+        <hr>
+        <div>
+          <h5>Fill in the form to email us</h5>
+          <!-- This form includes required fields. For more details on validation,
+            see https://getbootstrap.com/docs/5.1/forms/validation/ -->
+          <form class="needs-validation" method="post" action="mailto:buas@buas.nl?subject=CoTravel%20Enquiry" enctype="text/plain">
+            <div class="my-3">
+              <label for="emailfield" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="emailfield" name="sender-email" required>
+            </div>
+            <div class="my-3">
+              <label for="messagefield" class="form-label">Your message</label>
+              <textarea class="form-control" id="messagefield" rows="5" name="message-contents" required></textarea>
+            </div>
+            <div class="form-check my-3">
+              <input type="checkbox" class="form-check-input" id="newsletter" name="subscribe-newsletter" checked>
+              <label class="form-check-label" for="newsletter">
+                Subscribe to the awesome
+                <span class="text-cyan fw-bold">CO</span><span class="text-magenta fw-bold">TRAVEL</span>
+                newsletter, you'll be the first to know about our new destinations
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Send a message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- End of contact form -->
+
+  </body>
+</html>
