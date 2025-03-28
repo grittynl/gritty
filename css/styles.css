@@ -4,14 +4,21 @@
 
 body {
 	font-family: century-gothic, sans-serif;
+	background: #FFF4EA;
 }
 
-.text-cyan {
-	color: #35a8e0;
+.text-navy {
+	color: #162b3e;
 }
 
-.text-magenta {
-	color: #e61b72;
+.text-babyblue {
+	color: #a8c2e0;
+}
+.text-mutedrose {
+	color: #cb7178;
+}
+.text-offwhite {
+	color: #FFF4EA;
 }
 
 .hero-header {
@@ -19,6 +26,30 @@ body {
 	background-size: cover;
 	background-position: center;
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, .8);
+}
+.bg-navy {
+	background-color: #162b3e;
+}
+.bg-babyblue {
+	background-color: #a8c2e0;
+}
+.bg-mutedrose {
+	background-color: #cb7178;
+}
+.bg-offwhite {
+	background-color: #FFF4EA;
+}
+.border-navy {
+	border-color: #162b3e;
+}
+.border-babyblue {
+	border-color: #a8c2e0;
+}
+.border-mutedrose {
+	border-color: #cb7178;
+}
+.border-offwhite {
+	border-color: #FFF4EA;
 }
 
 /* Style for the map page */
@@ -38,8 +69,8 @@ body {
 }
 
 .week-table td:not(.inactive-day):hover {
-	background: #e61b72;
-	color: white;
+	background: #fff4ea;
+	color: #fff4ea;
 }
 
 td.selected-day {
