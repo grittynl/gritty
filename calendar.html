@@ -42,30 +42,30 @@
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav flex-grow-1">
             <li class="nav-item">
-              <a class="nav-link" href="index.html#services">Our services</a>
+              <a class="nav-link body" href="index.html#services">Our services</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="destinations.html" id="destinationDropdownButton" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle body" href="destinations.html" id="destinationDropdownButton" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Choose a destination
               </a>
-              <ul class="dropdown-menu" aria-labelledby="destinationDropdownButton" id="destinationDropdown">
-                <li><a class="dropdown-item" href="destinations.html#top">All destinations</a></li>
+              <ul class="dropdown-menu body" aria-labelledby="destinationDropdownButton" id="destinationDropdown">
+                <li><a class="dropdown-item body" href="destinations.html#top">All destinations</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="destinations.html#argentina">Argentina</a></li>
-                <li><a class="dropdown-item" href="destinations.html#istanbul">Istanbul</a></li>
-                <li><a class="dropdown-item" href="destinations.html#japan">Japan</a></li>
-                <li><a class="dropdown-item" href="destinations.html#nyc">New York</a></li>
-                <li><a class="dropdown-item" href="destinations.html#thailand">Thailand</a></li>
-                <li><a class="dropdown-item" href="destinations.html#vietnam">Vietnam</a></li>
+                <li><a class="dropdown-item body" href="destinations.html#argentina">Argentina</a></li>
+                <li><a class="dropdown-item body" href="destinations.html#istanbul">Istanbul</a></li>
+                <li><a class="dropdown-item body" href="destinations.html#japan">Japan</a></li>
+                <li><a class="dropdown-item body" href="destinations.html#nyc">New York</a></li>
+                <li><a class="dropdown-item body" href="destinations.html#thailand">Thailand</a></li>
+                <li><a class="dropdown-item body" href="destinations.html#vietnam">Vietnam</a></li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="calendar.html">Choose a date</a>
+              <a class="nav-link active body" aria-current="page" href="calendar.html">Choose a date</a>
             </li>
             <!-- A call to action at the end of the navigation bar.
               This uses the Offcanvas pattern, see documentation at https://getbootstrap.com/docs/5.1/components/offcanvas/ -->
             <li class="nav-item ms-lg-auto">
-              <button class="btn bg-navy text-offwhite" data-bs-target="#offcanvas" data-bs-toggle="offcanvas" aria-controls="offcanvas">
+              <button class="btn bg-navy text-offwhite body" data-bs-target="#offcanvas" data-bs-toggle="offcanvas" aria-controls="offcanvas">
                 Contact us for a consultation!
               </button>
             </li>
@@ -75,7 +75,7 @@
     </nav>
     
     <!-- A hero section. hero-header is defined in our own styles -->
-    <div class="bg-dark py-4 mb-4 text-light container-fluid hero-header text-center">
+    <div class="bg-dark py-4 mb-4 text-light container-fluid hero-header text-center header">
       <h1>When would you like to leave?</h1>
     </div>
 
@@ -85,9 +85,9 @@
         <!-- This calendar is all "handmade" and will only display these two months.
           You can find dynamic calendar components by searching online. -->
         <div class="col-md-6 text-center">
-          <h3>July 2022</h3>
-          <table class="table table-striped w-100 week-table">
-            <thead class="table-info">
+          <h3 class="subheader">July 2022</h3>
+          <table class="table table-striped w-100 week-table body">
+            <thead class="table-info body">
               <tr>
                 <th class="fw-normal" scope="col">M<span class="d-none d-sm-inline">on</span><span class="d-none d-xxl-inline">day</span></th>
                 <th class="fw-normal" scope="col">T<span class="d-none d-sm-inline">ue</span><span class="d-none d-xxl-inline">sday</span></th>
@@ -149,9 +149,9 @@
         </div>
         <!-- End of July, moving on to August -->
         <div class="col-md-6 text-center">
-          <h3>August 2022</h3>
-          <table class="table table-striped w-100 week-table">
-            <thead class="table-info">
+          <h3 class="subheader">August 2022</h3>
+          <table class="table table-striped w-100 week-table body">
+            <thead class="table-info body">
               <tr>
                 <th class="fw-normal" scope="col">M<span class="d-none d-sm-inline">on</span><span class="d-none d-xxl-inline">day</span></th>
                 <th class="fw-normal" scope="col">T<span class="d-none d-sm-inline">ue</span><span class="d-none d-xxl-inline">sday</span></th>
@@ -213,7 +213,7 @@
         </div>
       </div>
       <div class="text-end">
-        <button id="calendar-button" class="btn btn-danger" data-bs-target="#offcanvas" data-bs-toggle="offcanvas" aria-controls="offcanvas" disabled>
+        <button id="calendar-button" class="btn bg-mutedrose text=offwhite body" data-bs-target="#offcanvas" data-bs-toggle="offcanvas" aria-controls="offcanvas" disabled>
           Get a quote for <span id="this-date-span">this date</span>
         </button>
       </div>
@@ -225,7 +225,7 @@
     <!-- Footer -->
     <footer class="mt-auto bg-dark text-light shadow-lg">
       <div class="container pt-3 text-end">
-        <p class="">&copy; Breda University of Applied Sciences 2021-2022</p>
+        <p class="text-offwhite body">&copy; Breda University of Applied Sciences 2021-2022</p>
       </div>
     </footer>
 
