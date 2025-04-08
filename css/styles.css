@@ -1,5 +1,5 @@
 @import url("https://use.typekit.net/kuw2tbx.css");
-
+<link rel="stylesheet" href="https://use.typekit.net/svk4bas.css">
 /* Styles for all pages */
 
 body {
@@ -7,6 +7,11 @@ body {
 	background: #FFF4EA;
 }
 
+.header {
+	font-family: "ff-cocon-pro", sans-serif;
+	font-weight: 700;
+	font-style: normal;
+}
 .text-navy {
 	color: #162b3e;
 }
