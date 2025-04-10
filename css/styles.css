@@ -65,6 +65,14 @@ body {
     height: 300px; /* Set your desired height */
     object-fit: cover; 
 }
+  .custom-header {
+        min-height: 60px;
+	    font-family: "ff-cocon-pro", sans-serif;
+    }
+    .custom-body {
+        min-height: 100px;
+		font-family: "poppins", sans-serif;
+    }
 /* Style for the map page */
 
 #map {
