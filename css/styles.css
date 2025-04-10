@@ -60,7 +60,11 @@ body {
 .border-offwhite {
 	border-color: #FFF4EA;
 }
-
+/* Style for the landing page */
+#product-features .carousel-inner img {
+    height: 300px; /* Set your desired height */
+    object-fit: cover; 
+}
 /* Style for the map page */
 
 #map {

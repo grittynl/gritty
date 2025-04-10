@@ -4,9 +4,10 @@
 	<style>
  	@import url("https://use.typekit.net/svk4bas.css");
 	</style>
+	
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
@@ -26,6 +27,7 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
    crossorigin=""></script>
+	  
 
     <title>Gritty - Back braces for dachshunds</title>
   </head>
@@ -98,10 +100,54 @@
 
 
     <!-- End of hero-header -->
-
-    <!-- The container for the description of services on the home page -->
-    <div class="container" id="services">
-      <h2 class="text-center mt-4 mb-2 header">Hear from our previous customers</h2>
+	  
+	<!-- Section for product features -->
+<div class="container" id="product-features">
+    <h2 class="text-center text-navy header">Gritty Back Brace Features</h2>
+	
+   <div id="product features" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="images/strap-closeup.jpeg" class="d-block w-100" alt="Product image">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 class="subheader text-offwhite"><strong>Seasonal designs</strong></h5>
+        <p class="body text-offwhite">Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/strap-closeup.jpeg" class="d-block w-100" alt="Product image">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 class="subheader text-offwhite"><strong>Specialized adjustments</strong></h5>
+        <p class="body text-offwhite">Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+     <img src="images/strap-closeup.jpeg" class="d-block w-100" alt="Product image">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 class="subheader text-offwhite"><strong>Quality craftsmanship</strong></h5>
+        <p class="body text-offwhite">Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- End of section for product features -->
+	  
+    <!-- The container for the customer testimonials -->
+    <div class="container" id="customer testimonials">
+      <h2 class="text-center mt-4 mb-2 text-navy header">Hear from our previous customers</h2>
       <div class="row mb-5">
         <!-- 1 column at XS, 2 columns at S, 3 columns at M, 4 columns at L -->
         <div class="col-sm-6 col-md-4 col-lg-4 my-2">
@@ -141,7 +187,7 @@
         </div>
       </div>
     </div>
-    <!-- End of service descriptions -->
+    <!-- End of customer testimonials -->
 
     <!-- Footer -->
     <footer class=" mt-auto bg-navy text-offwhite shadow-lg">
