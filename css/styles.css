@@ -73,6 +73,34 @@ body {
         min-height: 100px;
 		font-family: "poppins", sans-serif;
     }
+
+ #customer-testimonials {
+        background-color: #FFF4EA; /* Match the website background */
+        padding: 40px 0; /* Add padding to the section */
+    }
+    .card {
+        transition: transform 0.3s ease; /* Smooth transition for hover effect */
+        border: 1px solid #f8f9fa; /* Set border color to offwhite */
+    }
+    .card:hover {
+        transform: scale(1.05); /* Slightly enlarge the card on hover */
+    }
+    .custom-body {
+        min-height: 80px; /* Ensure consistent height for body text */
+    }
+    .bubble-card {
+        position: relative;
+        background-color: #FFF4EA; /* Match the website background */
+        border-radius: 1.5rem; /* More rounded corners for the card */
+        overflow: hidden; /* Ensure the bubble shape is maintained */
+    }
+    .rounded-5 {
+        border-radius: 1.5rem; /* Increased rounding for a softer look */
+    }
+    .quote {
+        position: relative;
+        padding: 10px 20px; /* Add padding for the quote */
+        font
 /* Style for the map page */
 
 #map {
