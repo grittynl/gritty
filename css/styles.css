@@ -62,7 +62,7 @@ body {
 }
 /* Style for the landing page */
 #product-features .carousel-inner img {
-    height: 350px; /* Set your desired height */
+    height: 420px; /* Set your desired height */
     object-fit: cover; 
 }
   .custom-header {
