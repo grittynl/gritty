@@ -101,30 +101,6 @@ body {
         position: relative;
         padding: 10px 20px; /* Add padding for the quote */
         font
-/* Style for the map page */
 
-#map {
-	height: 350px;
-}
-
-/* Styles for the calendar page */
-
-.week-table td {
-	width:  14.2%;
-}
-
-.week-table td:not(.inactive-day) {
-	cursor:  pointer;
-}
-
-.week-table td:not(.inactive-day):hover {
-	background: #fff4ea;
-	color: #fff4ea;
-}
-
-td.selected-day {
-	background: #35a8e0;
-	color: white;
-}
 
 /* End of own styles */
